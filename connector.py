@@ -24,7 +24,7 @@ for database in cursor:
 cursor.execute("use little_lemon")
 
 #check which database is connected
-connection.database
+print("The database in use is: ", connection.database)
 
 
 #Create menu items table
@@ -40,7 +40,8 @@ cursor.execute(create_menuitem_table)
 
 #Show tables
 cursor.execute("show tables")
-for tables in cursor:
+results = cursor.fetchall()
+for tables in results:
     print(tables)
 
 ###############################create new table
@@ -87,3 +88,14 @@ cursor.execute(create_orders_table)
 cursor.execute("show tables")
 for tables in cursor:
     print(tables)
+
+
+#################################close cursor #######################################
+    # Let's close the cursor and the connection
+if connection.is_connected():
+    cursor.close()
+    print("The cursor is closed.")
+    connection.close()
+    print("MySQL connection is closed.")
+else:
+    print("Connection is already closed")
