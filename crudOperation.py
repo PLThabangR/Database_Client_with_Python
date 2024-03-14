@@ -77,8 +77,22 @@ cursor.execute(insert_orders)
 cursor.execute("Select * from Orders")
 print(cursor.fetchall())
 
+#######################################
+all_menus = """SELECT GuestFirstName, GuestLastName, TableNo FROM Bookings"""
+
+cursor.execute(all_menus)
+print(cursor.column_names)
+print(cursor.fetchall())
 
 
 
 cursor.execute("Select * from Orders")
 print(cursor.fetchall())
+######################Display data using a for loop
+select_stmt = """SELECT * FROM Menus;"""
+
+cursor.execute(select_stmt)
+results= cursor.fetchall()
+
+for x in results:
+    print(x)
