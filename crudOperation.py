@@ -42,3 +42,43 @@ cursor.execute(insert_menuitmes)
 
 cursor.execute("Select * from MenuItems")
 print(cursor.fetchall())
+
+#################################################
+insert_menu="""
+INSERT INTO Menus (MenuID, ItemID, Cuisine)
+VALUES
+(1, 1, 'Greek'),
+(1, 7, 'Greek'),
+(1, 10, 'Greek'),
+(1, 13, 'Greek'),
+(2, 3, 'Italian'),
+(2, 9, 'Italian'),
+(2, 12, 'Italian'),
+(2, 15, 'Italian'),
+(3, 5, 'Turkish'),
+(3, 17, 'Turkish'),
+(3, 11, 'Turkish'),
+(3, 16, 'Turkish');"""
+
+cursor.execute(insert_menu)
+cursor.execute("Select * from Menus")
+print(cursor.fetchall())
+
+#############################################################
+insert_orders="""
+INSERT INTO Orders (OrderID, TableNo, MenuID, BookingID, Quantity, BillAmount)
+VALUES
+(1, 12, 1, 1, 2, 86),
+(2, 19, 2, 2, 1, 37),
+(3, 15, 2, 3, 1, 37),
+(4, 5, 3, 4, 1, 40),
+(5, 8, 1, 5, 1, 43);"""
+cursor.execute(insert_orders)
+cursor.execute("Select * from Orders")
+print(cursor.fetchall())
+
+
+
+
+cursor.execute("Select * from Orders")
+print(cursor.fetchall())
