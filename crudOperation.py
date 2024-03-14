@@ -93,6 +93,6 @@ select_stmt = """SELECT * FROM Menus;"""
 
 cursor.execute(select_stmt)
 results= cursor.fetchall()
-
+print(cursor.column_names)
 for x in results:
     print(x)
