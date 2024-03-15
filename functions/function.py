@@ -66,7 +66,7 @@ for result in results:
 
 
 ##################Date function
-# Add your code here
+
 guestFullName ="""select BookingID,GuestFirstName ,case 
                          when hour(BookingSlot) in (15,16) then "Late afternoon"
                         when hour(BookingSlot) in(17,18) then "Evening"
@@ -91,4 +91,18 @@ for x in results:
 ################Control flow function
 ######Case
 
+
+
+#############################Show time in hours
+import datetime as dt
+upcomingBooking = """select count(BookingID), hour(BookingSlot) as hours
+                        
+ from Bookings group by bookingID order by hours asc"""
+cursor.execute(upcomingBooking)
+
+results = cursor.fetchall()
+print(cursor.column_names)
+
+for x in results:
+    print(x)
 
